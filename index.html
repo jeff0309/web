@@ -1443,7 +1443,7 @@
             const t = translations[currentLang];
 
             const top10 = [...data].sort((a, b) => b.trueWeight - a.trueWeight).slice(0, 10);
-            const labels = top10.map(d => d.ticker);
+            const labels = top10.map(d => currentLang === 'zh' ? (compNamesZh[d.ticker] || d.companyName) : d.ticker);
             const dataOfficial = top10.map(d => Number((d.officialWeight * 100).toFixed(2)));
             const dataTrue = top10.map(d => Number((d.trueWeight * 100).toFixed(2)));
 
